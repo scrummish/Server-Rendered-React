@@ -28,14 +28,9 @@ module.exports = {
                 // Options passed to babel-loader
                 options: {
                     // Actual rules used by babel to transpile the code
-                    // react to transpile jsx
-                    // stage-0 to handle asynch code
-                    // array with env preset used by webpack to meet requirements for latest two versions 
-                    // of all popular browsers 
                     presets: [
-                        'react',
-                        'stage-0',
-                        ['env', { targets: {browsers: ['last 2 versions']} }]
+                        "@babel/preset-react",
+                        '@babel/preset-env',
                     ]
                 },
             }
