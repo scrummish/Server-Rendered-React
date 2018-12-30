@@ -1,8 +1,5 @@
-import React from 'react';
-import { renderToString } from 'react-dom/server';
 import express from 'express';
-
-import App from './client/App';
+import renderer from './helpers/renderer';
 
 const app = express(),
       port = 3000;
@@ -10,8 +7,7 @@ const app = express(),
 app.use(express.static('public'));
 
 app.get('/', (req,res) => {
-    const content = renderToString(<App/>);
-    res.send('hello');
+    res.send(renderer());
 })
 
 app.listen(port, () => {
