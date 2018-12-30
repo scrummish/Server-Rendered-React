@@ -14,8 +14,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "webpack-merge": "^4.1.5"
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -25,6 +24,8 @@
     "nodemon": "^1.18.9",
     "npm-run-all": "^4.1.5",
     "webpack": "^4.28.3",
-    "webpack-cli": "^3.1.2"
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.5",
+    "webpack-node-externals": "^1.7.2"
   }
 }
