@@ -1,3 +1,6 @@
 // Entry point for client side application
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 
-console.log('client side app');
+ReactDOM.hydrate(<App/>, document.getElementById('root'));
