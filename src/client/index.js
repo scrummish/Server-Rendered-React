@@ -1,6 +1,11 @@
 // Entry point for client side application
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 
-ReactDOM.hydrate(<App/>, document.getElementById('root'));
+ReactDOM.hydrate(
+    <BrowserRouter>
+        <Routes/>
+    </BrowserRouter>, 
+    document.getElementById('root'));
