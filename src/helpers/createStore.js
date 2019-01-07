@@ -3,6 +3,7 @@
 // the initial data load before rendering the app 
 
 import { createStore, applyMiddleware } from 'redux';
+import reducers from '../client/reducers';
 import thunk from 'redux-thunk';
 
 export default () => {
