@@ -1,3 +1,5 @@
+// babel-polyfill used for modern js like async await
+import "@babel/polyfill";
 import express from 'express';
 import { matchRoutes } from 'react-router-config';
 import renderer from './helpers/renderer';
@@ -10,15 +12,22 @@ const app = express(),
 app.use(express.static('public'));
 
 app.get('/', (req,res) => {
+    // Create the server side store to fill with the initial data
+    // that will be fetched
     const store = createStore();
 
-    matchRoutes(Routes, req.path).map(({ route })=>{
-        return route.loadData ? route.loadData() : null;
+    // Checks to see what routes require outside data 
+    // and makes the request for the data
+    const promises = matchRoutes(Routes, req.path).map(({ route })=>{
+        return route.loadData ? route.loadData(store) : null;
     });
-    
-    res.send(renderer(req, store));
+
+    // Once all the promises have been fullfilled render the app
+    Promise.all(promises).then(() => {
+        res.send(renderer(req, store));
+    })
 })
 
 app.listen(port, () => {
-    console.log('listening on port ' + port);
+    console.log('listening on port: ' + port);
 });

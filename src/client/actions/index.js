@@ -11,6 +11,6 @@ export const fetchUsers = () => async dispatch => {
     const response = await axios.get(url);
     dispatch({
         type: FETCH_USERS,
-        payload: response
+        payload: response.data
     });
 };

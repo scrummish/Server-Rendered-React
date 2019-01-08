@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Route } from 'react-router-dom';
-import App, { loadData } from './App';
+import App from './App';
 
 
 // Classic style using jsx 
@@ -16,9 +16,8 @@ import App, { loadData } from './App';
 // in order to use react-router server side rendering
 export default [
     {   
-        loadData,
+        ...App,
         path: '/',
-        component: App,
         exact: true
     }
 ]

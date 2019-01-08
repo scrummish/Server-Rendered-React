@@ -1,9 +1,24 @@
 import React from 'react';
+import { fetchUsers } from './actions';
+import { connect } from 'react-redux';
 
-const App = () => <div><h1>APP.JShh</h1></div>
-function loadData() {
-    console.log('loaddata')
+const App = props => {
+ return (
+    <div><h1>APP.JShh</h1></div> 
+ )
+
 }
 
-export { loadData };
-export default App;
+
+function loadData(store) {
+    return store.dispatch(fetchUsers());
+}
+
+function mapStateToProps(state) {
+    return { users: state.users };
+}
+
+export default { 
+    loadData, 
+    component: connect(mapStateToProps)(App) 
+};
